@@ -1,0 +1,206 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Basic body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #0a0a0a; 
+}
+/*HEADER*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 1rem 2rem;
+    position: fixed; /* Stays at the top */
+    width: 100%;
+    top: 0;
+    z-index: 100; /* Above all elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.logo h1 {
+    font-size: 2rem;
+    color: #00ffcc; 
+}
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav ul li {
+    margin-left: 2rem;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+/* Highlight active or hovered link */
+nav ul li a:hover, 
+nav ul li a.active {
+    color: #00ffcc;
+}
+/*FOOTER*/
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+footer p {
+    margin-bottom: 1rem;
+}
+.social-links a {
+    color: #00ffcc;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+.social-links a:hover {
+    color: #fff;
+}
+/*RESPONSIVE HEADER*/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
+/*CONTACT HERO SECTION*/
+.contact-hero {
+    padding: 5rem 2rem 3rem;
+    background: linear-gradient(to right, #0a0a0a, #1a1a1a);
+    color: #fff;
+    text-align: center;
+    margin-top: 80px; /* Avoid overlapping with fixed header */
+}
+.contact-hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #00ffcc;
+}
+.contact-hero p {
+    font-size: 1.2rem;
+}
+/*CONTACT CONTENT*/
+.contact-content {
+    padding: 3rem 2rem;
+    background-color: #1a1a1a;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+/* Contact form layout */
+form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+form input, 
+form textarea {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #2a2a2a;
+    color: #fff;
+}
+form textarea {
+    height: 150px;
+}
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #00ffcc;
+    color: #0a0a0a;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #00ccaa;
+}
+/* Right-side contact info box */
+.contact-info {
+    flex: 1;
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.contact-info h3 {
+    color: #00ffcc;
+    margin-bottom: 1rem;
+}
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+/*RESPONSIVE CONTACT CONTENT*/
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+    }
+}
+/*FULL ANIMATED SPACE BACKGROUND*/
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-repeat: repeat;
+    background-size: cover;
+    pointer-events: none;
+    z-index: -2; /* Behind everything */
+}
+/* Layer of tiny stars */
+body::before {
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.4;
+    animation: starsMove 90s linear infinite; /* Slow movement */
+}
+/* Layer of bright twinkling stars */
+body::after {
+    background-image: url('https://www.transparenttextures.com/patterns/tiny-stars.png');
+    opacity: 0.85;
+    animation: starsTwinkle 4s ease-in-out infinite; /* Twinkling */
+}
+/* Make sure important elements stay above background */
+header, .game-section, footer {
+    position: relative;
+    z-index: 5;
+}
+/*STAR ANIMATION KEYFRAMES*/
+@keyframes starsMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}
+@keyframes starsTwinkle {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}

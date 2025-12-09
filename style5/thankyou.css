@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Main page style */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*TWINKLING STAR BACKGROUND*/
+/* Base style for star layers */
+.stars, .stars2, .stars3 {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: -1;
+}
+/* First star layer (brightest) */
+.stars {
+    background-image: radial-gradient(2px 2px at 20px 20px, #fff, transparent);
+    animation: sparkle 6s infinite ease-in-out;
+}
+/* Second star layer (medium opacity) */
+.stars2 {
+    background-image: radial-gradient(2px 2px at 50px 100px, #fff, transparent);
+    animation: sparkle 8s infinite ease-in-out;
+    opacity: 0.6;
+}
+/* Third star layer (faintest) */
+.stars3 {
+    background-image: radial-gradient(2px 2px at 200px 300px, #fff, transparent);
+    animation: sparkle 10s infinite ease-in-out;
+    opacity: 0.4;
+}
+/* Star twinkling animation */
+@keyframes sparkle {
+    0%,100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+/*MESSAGE BOX DESIGN*/
+.thankyou-container {
+    text-align: center;
+    background-color: #0a0a0a;
+    padding: 3rem 4rem;
+    border-radius: 12px;
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 25px rgba(0,255,204,0.4);
+    animation: fade 1.2s ease-in-out;
+}
+/* Thank you title */
+.thankyou-container h1 {
+    color: #00ffcc;
+    margin-bottom: 1rem;
+}
+/* Paragraph message */
+.thankyou-container p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+/* BUTTONS*/
+/* Main button style */
+.btn {
+    display: inline-block;
+    margin: 0.5rem;
+    background: #00ffcc;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: 0.3s;
+}
+/* Hover effect */
+.btn:hover {
+    background: #fff;
+}
+/* Secondary outlined button */
+.btn.secondary {
+    background: transparent;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+}
+/* Secondary hover effect */
+.btn.secondary:hover {
+    background: #00ffcc;
+    color: #000;
+}
+/* Fade-in animation for the box */
+@keyframes fade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

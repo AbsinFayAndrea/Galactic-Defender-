@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Basic body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #0a0a0a;
+}
+/*HEADER*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 1rem 2rem;
+    position: fixed; /* Always visible at the top */
+    width: 100%;
+    top: 0;
+    z-index: 100; /* Above all other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.logo h1 {
+    font-size: 2rem;
+    color: #00ffcc;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav ul li {
+    margin-left: 2rem;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+/* Active or hovered navigation link */
+nav ul li a:hover, 
+nav ul li a.active {
+    color: #00ffcc;
+}
+/*FOOTER*/
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+footer p {
+    margin-bottom: 1rem;
+}
+.social-links a {
+    color: #00ffcc;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+.social-links a:hover {
+    color: #fff;
+}
+/*RESPONSIVE HEADER*/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
+/*DOWNLOAD HERO SECTION*/
+.download-hero {
+    padding: 5rem 2rem 3rem;
+    background: linear-gradient(to right, #0a0a0a, #1a1a1a);
+    color: #fff;
+    text-align: center;
+    margin-top: 80px; /* Avoid overlap with fixed header */
+}
+.download-hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #00ffcc;
+}
+.download-hero p {
+    font-size: 1.2rem;
+}
+/*DOWNLOAD CONTENT GRID*/
+.download-options {
+    padding: 3rem 2rem;
+    background-color: #1a1a1a;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+/* Individual download box */
+.download-card {
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.download-card h3 {
+    color: #00ffcc;
+    margin-bottom: 1rem;
+}
+/* Buttons for downloads */
+.btn {
+    display: inline-block;
+    background-color: #00ffcc;
+    color: #0a0a0a;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+.btn:hover {
+    background-color: #00ccaa;
+}
+/* System requirements section */
+.system-reqs {
+    grid-column: span 2;
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.system-reqs h3 {
+    color: #00ffcc;
+    margin-bottom: 1rem;
+}
+.system-reqs ul {
+    list-style: none;
+    padding: 0;
+}
+.system-reqs li {
+    margin-bottom: 0.5rem;
+}
+/*RESPONSIVE GRID*/
+@media (max-width: 768px) {
+    .download-options {
+        grid-template-columns: 1fr;
+    }
+
+    .system-reqs {
+        grid-column: span 1;
+    }
+}
+/*FULL ANIMATED SPACE BACKGROUND*/
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-repeat: repeat;
+    background-size: cover;
+    pointer-events: none;
+    z-index: -2; /* Behind everything */
+}
+/* Small star layer */
+body::before {
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.4;
+    animation: starsMove 90s linear infinite;
+}
+/* Twinkling big star layer */
+body::after {
+    background-image: url('https://www.transparenttextures.com/patterns/tiny-stars.png');
+    opacity: 0.85;
+    animation: starsTwinkle 4s ease-in-out infinite;
+}
+/* Keep UI elements above stars */
+header, .game-section, footer {
+    position: relative;
+    z-index: 5;
+}
+/*STAR ANIMATIONS*/
+@keyframes starsMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}
+@keyframes starsTwinkle {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}

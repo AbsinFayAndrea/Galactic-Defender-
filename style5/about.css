@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+/* Main body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #0a0a0a;
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+/*HEADER*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 1rem 2rem;
+    width: 100%;
+    position: fixed; /* Stay at top */
+    top: 0;
+    z-index: 100; /* Above all elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.logo h1 {
+    font-size: 2rem;
+    color: #00ffcc;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+}
+nav ul li {
+    margin-left: 2rem;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+/* Highlight active or hovered menu items */
+nav ul li a:hover,
+nav ul li a.active {
+    color: #00ffcc;
+}
+/*HERO SECTION*/
+.about-hero {
+    padding: 5rem 2rem 3rem;
+    margin-top: 80px; /* Push content below fixed header */
+    text-align: center;
+    background: linear-gradient(to right, #0a0a0a, #1a1a1a);
+}
+.about-hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #00ffcc;
+}
+.about-hero p {
+    font-size: 1.2rem;
+}
+/*ABOUT CONTENT*/
+.about-content {
+    padding: 3rem 2rem;
+    background-color: #1a1a1a;
+    text-align: center;
+}
+.about-content p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.2rem;
+}
+.story {
+    margin-bottom: 2rem;
+}
+.story h3 {
+    color: #00ffcc;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.about-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+/*FOOTER*/
+footer {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+footer p {
+    margin-bottom: 1rem;
+}
+.social-links a {
+    color: #00ffcc;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+.social-links a:hover {
+    color: #fff;
+}
+/*RESPONSIVE HEADER*/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+    }
+}
+/*STAR BACKGROUND*/
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-repeat: repeat;
+    background-size: cover;
+    pointer-events: none;
+    z-index: -2; /* Behind all content */
+}
+/* Small stars layer */
+body::before {
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.4;
+    animation: starsMove 120s linear infinite; /* Slow drifting effect */
+}
+/* Larger stars layer */
+body::after {
+    background-image: url('https://www.transparenttextures.com/patterns/tiny-stars.png');
+    opacity: 0.7;
+    animation: starsTwinkle 3s ease-in-out infinite; /* Blinking effect */
+}
+/* Stars drifting animation */
+@keyframes starsMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}
+/* Twinkling animation */
+@keyframes starsTwinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+/* Ensure UI elements appear above background animations */
+header, footer, .about-hero, .about-content {
+    position: relative;
+    z-index: 5;
+}
