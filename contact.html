@@ -43,7 +43,9 @@
     <!-- Main contact content: form and contact info -->
     <section class="contact-content">
         <!-- Contact form -->
-        <form action="thankyou.html" method="post">
+        <form name="contact" method="post" data-netlify="true" action="thankyou.html">
+			<input type="hidden" name="form-name" value="contact"/>
+			
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
